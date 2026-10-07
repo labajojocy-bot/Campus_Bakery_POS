@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Campus Bakery POS</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================
+     HEADER
+========================================= -->
+
+<header>
+
+    <h1>🥐 Campus Bakery POS</h1>
+
+    <p>Campus Bakery Ordering System</p>
+
+</header>
+
+
+<!-- =========================================
+     SCREEN 1: PRODUCT LIST
+========================================= -->
+
+<section id="product-screen" class="screen active">
+
+    <h2 class="screen-title">
+        Product List / Order
+    </h2>
+
+
+    <div class="products">
+
+
+        <!-- Pandesal -->
+
+        <div class="product">
+
+            <img src="images.jpg"
+                 alt="Pandesal">
+
+            <h3>Pandesal</h3>
+
+            <p class="description">
+                Pack of 5
+            </p>
+
+            <p class="price">
+                ₱25.00
+            </p>
+
+            <button class="add-btn"
+                    onclick="addToCart('Pandesal', 25)">
+                Add to Cart
+            </button>
+
+        </div>
+
+
+        <!-- Ensaymada -->
+
+        <div class="product">
+
+            <img src="images (1).jpg"
+                 alt="Ensaymada">
+
+            <h3>Ensaymada</h3>
+
+            <p class="description">
+                Sweet cheese bread
+            </p>
+
+            <p class="price">
+                ₱20.00
+            </p>
+
+            <button class="add-btn"
+                    onclick="addToCart('Ensaymada', 20)">
+                Add to Cart
+            </button>
+
+        </div>
+
+
+        <!-- Spanish Bread -->
+
+        <div class="product">
+
+            <img src="images (2).jpg"
+                 alt="Spanish Bread">
+
+            <h3>Spanish Bread</h3>
+
+            <p class="description">
+                Soft sweet bread
+            </p>
+
+            <p class="price">
+                ₱15.00
+            </p>
+
+            <button class="add-btn"
+                    onclick="addToCart('Spanish Bread', 15)">
+                Add to Cart
+            </button>
+
+        </div>
+
+
+        <!-- Chocolate Cupcake -->
+
+        <div class="product">
+
+            <img src="/images (3).jpg"
+                 alt="Chocolate Cupcake">
+
+            <h3>Chocolate Cupcake</h3>
+
+            <p class="description">
+                Chocolate flavored cupcake
+            </p>
+
+            <p class="price">
+                ₱30.00
+            </p>
+
+            <button class="add-btn"
+                    onclick="addToCart('Chocolate Cupcake', 30)">
+                Add to Cart
+            </button>
+
+        </div>
+
+
+        <!-- Loaf Bread -->
+
+        <div class="product">
+
+            <img src="/images (4).jpg"
+                 alt="Loaf Bread">
+
+            <h3>Loaf Bread</h3>
+
+            <p class="description">
+                Soft sliced bread
+            </p>
+
+            <p class="price">
+                ₱55.00
+            </p>
+
+            <button class="add-btn"
+                    onclick="addToCart('Loaf Bread', 55)">
+                Add to Cart
+            </button>
+
+        </div>
+
+
+        <!-- Brewed Coffee -->
+
+        <div class="product">
+
+            <img src="images (5).jpg"
+                 alt="Brewed Coffee">
+
+            <h3>Brewed Coffee</h3>
+
+            <p class="description">
+                1 cup
+            </p>
+
+            <p class="price">
+                ₱25.00
+            </p>
+
+            <button class="add-btn"
+                    onclick="addToCart('Brewed Coffee', 25)">
+                Add to Cart
+            </button>
+
+        </div>
+
+
+    </div>
+
+
+    <div class="navigation">
+
+        <div></div>
+
+        <button class="next-btn"
+                onclick="goToCart()">
+            View Cart →
+        </button>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================
+     SCREEN 2: CART / ORDER SUMMARY
+========================================= -->
+
+<section id="cart-screen" class="screen">
+
+    <h2 class="screen-title">
+        Cart / Order Summary
+    </h2>
+
+
+    <div id="cart-items">
+
+        <div class="empty">
+            Your cart is empty.
+        </div>
+
+    </div>
+
+
+    <div class="total-box">
+
+        <span>Total:</span>
+
+        <span id="cart-total">
+            ₱0.00
+        </span>
+
+    </div>
+
+
+    <div class="navigation">
+
+        <button class="back-btn"
+                onclick="showScreen('product-screen')">
+            ← Back
+        </button>
+
+        <button class="next-btn"
+                onclick="goToPayment()">
+            Proceed to Payment →
+        </button>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================
+     SCREEN 3: PAYMENT
+========================================= -->
+
+<section id="payment-screen" class="screen">
+
+    <h2 class="screen-title">
+        Payment
+    </h2>
+
+
+    <div class="payment-container">
+
+
+        <div class="total-box">
+
+            <span>Total:</span>
+
+            <span id="payment-total">
+                ₱0.00
+            </span>
+
+        </div>
+
+
+        <br>
+
+
+        <label for="cash">
+            Enter Cash Payment:
+        </label>
+
+
+        <input type="number"
+               id="cash"
+               placeholder="Enter amount"
+               min="0"
+               step="0.01">
+
+
+        <div id="payment-message"
+             class="message">
+        </div>
+
+
+        <button class="pay-btn"
+                onclick="processPayment()">
+            Pay
+        </button>
+
+
+        <br><br>
+
+
+        <button class="back-btn"
+                onclick="showScreen('cart-screen')">
+            ← Back
+        </button>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================
+     SCREEN 4: RECEIPT
+========================================= -->
+
+<section id="receipt-screen" class="screen">
+
+    <h2 class="screen-title">
+        Receipt
+    </h2>
+
+
+    <div class="receipt">
+
+
+        <h2>
+            🥐 Campus Bakery
+        </h2>
+
+
+        <p class="receipt-center">
+            Payment Successful
+        </p>
+
+
+        <p class="receipt-center"
+           id="transaction-reference">
+        </p>
+
+
+        <hr>
+
+
+        <div id="receipt-items">
+        </div>
+
+
+        <div class="receipt-row receipt-total">
+
+            <span>Total:</span>
+
+            <span id="receipt-total">
+                ₱0.00
+            </span>
+
+        </div>
+
+
+        <div class="receipt-row">
+
+            <span>Paid:</span>
+
+            <span id="receipt-paid">
+                ₱0.00
+            </span>
+
+        </div>
+
+
+        <div class="receipt-row">
+
+            <span>Change:</span>
+
+            <span id="receipt-change">
+                ₱0.00
+            </span>
+
+        </div>
+
+
+        <br>
+
+
+        <button class="new-btn"
+                onclick="newTransaction()">
+            New Transaction
+        </button>
+
+
+    </div>
+
+</section>
+
+
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
